@@ -36,10 +36,11 @@ const PokemonSelectionCard = ({ pokemon }: PokemonSelectionCardProps) => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
+          gap: 1,
         }}
       >
         <img src={imageUrl} alt={name} width="80" loading="lazy" />
-        <Typography>{name}</Typography>
+        <Typography variant="caption">{name}</Typography>
       </Box>
     </Card>
   );

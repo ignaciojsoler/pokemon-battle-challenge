@@ -18,7 +18,7 @@ const PokemonBattleCard = ({ pokemon }: PokemonBattleCardProps) => {
     <Card
       sx={{
         width: "100%",
-        maxWidth: 300,
+        maxWidth: 180,
         boxShadow: 3,
         padding: 2,
         transition: "all 100ms ease-in-out",
@@ -36,11 +36,12 @@ const PokemonBattleCard = ({ pokemon }: PokemonBattleCardProps) => {
         <img
           src={pokemon?.imageUrl ?? emptyValues.EMPTY_IMAGE}
           alt={pokemon?.name ?? emptyValues.EMPTY_NAME}
-          width="240"
           loading="lazy"
-          style={{ maxHeight: 240 }}
+          style={{ maxHeight: 180 }}
         />
-        <Typography>{pokemon?.name ?? emptyValues.EMPTY_NAME}</Typography>
+        <Box sx={{ width: "100%"}}>
+        <Typography variant="h5">{pokemon?.name ?? emptyValues.EMPTY_NAME}</Typography>
+        </Box>
       </Box>
     </Card>
   );

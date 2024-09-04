@@ -10,6 +10,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
         display: "flex",
         flexDirection: "column",
         gap: 3,
+        margin: "auto",
+        width: "fit-content"
       }}
     >
       {children}
