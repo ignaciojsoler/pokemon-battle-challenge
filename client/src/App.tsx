@@ -1,10 +1,11 @@
 import { Container, Box, Typography, Card } from "@mui/material"
 import PokemonList from "./components/PokemonList/PokemonList"
+import AppProvider from "./context/AppProvider"
 
 function App() {
 
   return (
-    <>
+    <AppProvider>
       <Container sx={{ flexGrow: 1, padding: 2 }}>
       <Box
         display="flex"
@@ -16,7 +17,7 @@ function App() {
         <PokemonList/>
       </Box>
     </Container>
-    </>
+    </AppProvider>
   )
 }
 
