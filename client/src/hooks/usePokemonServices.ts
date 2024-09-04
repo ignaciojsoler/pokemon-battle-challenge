@@ -10,7 +10,7 @@ const usePokemonServices = () => {
     setIsLoading(true);
     try {
       const pokemonsData = await fetchAllPokemons();
-      setPokemonList(pokemonsData);
+      if (pokemonsData) setPokemonList(pokemonsData);
     } catch (error) {
       console.error("Error fetching Pokemons:", error);
     } finally {
