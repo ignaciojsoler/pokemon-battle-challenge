@@ -1,6 +1,6 @@
 import { Card, Box, Typography } from "@mui/material";
-import { Pokemon } from "../../interfaces/Pokemon.interface";
-import { usePokemon } from "../../context/PokemonContext";
+import { Pokemon } from "../../../interfaces/Pokemon.interface";
+import { usePokemon } from "../../../context/PokemonContext";
 
 interface PokemonSelectionCardProps {
   pokemon: Pokemon;
@@ -21,12 +21,13 @@ const PokemonSelectionCard = ({ pokemon }: PokemonSelectionCardProps) => {
         transition: "all 100ms ease-in-out",
         borderRadius: 2,
         cursor: "pointer",
+        color: "white",
         "&:hover": {
           transform: "scale(1.03)",
         },
         "&:active": {
           transform: "scale(1.005)",
-          filter: " brightness(0.95)"
+          filter: " brightness(0.80)"
         },
       }}
       onClick={() => setUserSelectedPokemon(pokemon)}

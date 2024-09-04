@@ -12,12 +12,12 @@ const PropertyBar = ({ title, value }: PropertyBarProps) => {
   return (
     <Box>
       <Typography>{title}</Typography>
-      <Box sx={{ width: "100%", backgroundColor: "lightgray", borderRadius: 1, overflow: "hidden" }}>
+      <Box sx={{ width: "100%", backgroundColor: "darkgray", borderRadius: 1, overflow: "hidden" }}>
         <Box
           sx={{
             width: `${valueTransformedIntoPercentage}%`,
             height: 10,
-            backgroundColor: "green",
+            backgroundColor: "#2ba15c",
           }}
         />
       </Box>

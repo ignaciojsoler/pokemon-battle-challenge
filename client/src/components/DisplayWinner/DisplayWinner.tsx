@@ -5,12 +5,12 @@ const DisplayWinner = () => {
     <Box
       sx={{
         padding: 3,
-        backgroundColor: "lightskyblue",
+        backgroundColor: "#2ba15c",
         borderRadius: 2,
         borderColor: "black",
       }}
     >
-      <Typography variant="h5">Winner is shown here!</Typography>
+      <Typography variant="h5">Winner will be shown here!</Typography>
     </Box>
   );
 };

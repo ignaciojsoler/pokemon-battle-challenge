@@ -7,7 +7,7 @@ const BattleSection = () => {
   const { userSelectedPokemon, randomPokemon } = useBattleSectionLogic();
   
   return (
-    <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+    <Box sx={{display: "flex", justifyContent: "space-between", gap:2, alignItems: "center"}}>
       <PokemonBattleCard pokemon={userSelectedPokemon}/>
       <StartBattleButton userSelectedPokemon={userSelectedPokemon}/>
       <PokemonBattleCard pokemon={randomPokemon}/>

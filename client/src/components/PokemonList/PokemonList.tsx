@@ -1,5 +1,5 @@
 import { usePokemon } from "../../context/PokemonContext";
-import PokemonSelectionCard from "../PokemonSelectionCard/PokemonSelectionCard";
+import PokemonSelectionCard from "./PokemonSelectionCard/PokemonSelectionCard";
 import { Box, Typography } from "@mui/material";
 
 const PokemonList = () => {

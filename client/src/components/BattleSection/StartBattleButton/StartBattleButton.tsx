@@ -13,10 +13,11 @@ const StartBattleButton = ({
   return (
     <Button
       variant="contained"
-      color="success"
-      size="large"
       sx={{
         height: "fit-content",
+        backgroundColor: "#2ba15c",
+        color: "white",
+        textTransform: 'none' 
       }}
       disabled={!userSelectedPokemon}
     >

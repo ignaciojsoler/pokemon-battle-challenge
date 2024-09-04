@@ -38,7 +38,7 @@ const PokemonBattleCard = ({ pokemon }: PokemonBattleCardProps) => {
           src={pokemon?.imageUrl ?? emptyValues.EMPTY_IMAGE}
           alt={pokemon?.name ?? emptyValues.EMPTY_NAME}
           loading="lazy"
-          style={{ maxHeight: 180 }}
+          style={{ maxHeight: 180, filter: !pokemon ? "invert(1)" : ""}}
         />
         <Box sx={{ width: "100%" }}>
           <Typography variant="h5">
