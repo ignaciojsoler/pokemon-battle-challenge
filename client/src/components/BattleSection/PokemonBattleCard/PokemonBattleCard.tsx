@@ -40,21 +40,17 @@ const PokemonBattleCard = ({ pokemon }: PokemonBattleCardProps) => {
           loading="lazy"
           style={{ maxHeight: 180 }}
         />
-        <Box sx={{ width: "100%"}}>
-        <Typography variant="h5">{pokemon?.name ?? emptyValues.EMPTY_NAME}</Typography>
-        {
-          pokemon && (
-            <>
-              <Divider />
-              <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                <PropertyBar title="HP" value={pokemon.hp} />
-                <PropertyBar title="Attack" value={pokemon.attack} />
-                <PropertyBar title="Defense" value={pokemon.defense} />
-                <PropertyBar title="Speed" value={pokemon.speed} />
-              </Box>
-            </>
-          )
-        }
+        <Box sx={{ width: "100%" }}>
+          <Typography variant="h5">
+            {pokemon?.name ?? emptyValues.EMPTY_NAME}
+          </Typography>
+          <Divider sx={{marginY: 1}}/>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 2, }}>
+            <PropertyBar title="HP" value={pokemon?.hp ?? 0} />
+            <PropertyBar title="Attack" value={pokemon?.attack ?? 0} />
+            <PropertyBar title="Defense" value={pokemon?.defense ?? 0} />
+            <PropertyBar title="Speed" value={pokemon?.speed ?? 0} />
+          </Box>
         </Box>
       </Box>
     </Card>
