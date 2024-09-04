@@ -6,11 +6,11 @@ const PokemonList = () => {
   const { pokemons, arePokemonsLoading } = usePokemon();
 
   if (arePokemonsLoading) {
-    return <Typography>Loading...</Typography>;
+    return <Typography sx={{minHeight: 180}}>Loading...</Typography>;
   };
 
   if (!pokemons) {
-    return <Typography>No Pokemons found.</Typography>;
+    return <Typography sx={{minHeight: 180}}>No Pokemons found.</Typography>;
   };
 
   return (

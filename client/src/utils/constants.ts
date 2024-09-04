@@ -5,3 +5,7 @@ export const API_URL_ENDPOINTS = {
   BATTLE: `${API_URL}/battle`,
   SEED: `${API_URL}/seed`,
 };
+
+export const ASSETS_ULR = {
+  EMPTY_POKEMON_SILHOUETTE: "https://quizizz.com/media/resource/gs/quizizz-media/quizzes/8cd9ff69-beb7-42f0-b946-3d05f8929c08",
+}

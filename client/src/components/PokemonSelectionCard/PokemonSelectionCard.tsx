@@ -38,7 +38,7 @@ const PokemonSelectionCard = ({ pokemon }: PokemonSelectionCardProps) => {
           alignItems: "center",
         }}
       >
-        <img src={imageUrl} alt="Charizard" width="80" loading="lazy" />
+        <img src={imageUrl} alt={name} width="80" loading="lazy" />
         <Typography>{name}</Typography>
       </Box>
     </Card>
