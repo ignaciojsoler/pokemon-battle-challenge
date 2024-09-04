@@ -14,6 +14,7 @@ const StartBattleButton = ({
     <Button
       variant="contained"
       color="success"
+      size="large"
       sx={{
         height: "fit-content",
       }}

@@ -14,9 +14,10 @@ const PokemonSelectionCard = ({ pokemon }: PokemonSelectionCardProps) => {
     <Card
       sx={{
         width: "100%",
-        maxWidth: 100,
+        maxWidth: 120,
         boxShadow: 3,
-        padding: 2,
+        paddingX: 2,
+        paddingY: 1,
         transition: "all 100ms ease-in-out",
         borderRadius: 2,
         cursor: "pointer",
@@ -39,7 +40,7 @@ const PokemonSelectionCard = ({ pokemon }: PokemonSelectionCardProps) => {
           gap: 1,
         }}
       >
-        <img src={imageUrl} alt={name} width="80" loading="lazy" />
+        <img src={imageUrl} alt={name} width="120" loading="lazy" />
         <Typography variant="caption">{name}</Typography>
       </Box>
     </Card>

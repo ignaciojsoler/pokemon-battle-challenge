@@ -1,6 +1,7 @@
-import { Box, Card, Typography } from "@mui/material";
+import { Box, Card, Divider, Typography } from "@mui/material";
 import { Pokemon } from "../../../interfaces/Pokemon.interface";
 import { ASSETS_ULR } from "../../../utils/constants";
+import PropertyBar from "./PropertyBar/PropertyBar";
 
 interface PokemonBattleCardProps {
   pokemon: Pokemon | null;
@@ -18,7 +19,7 @@ const PokemonBattleCard = ({ pokemon }: PokemonBattleCardProps) => {
     <Card
       sx={{
         width: "100%",
-        maxWidth: 180,
+        maxWidth: 260,
         boxShadow: 3,
         padding: 2,
         transition: "all 100ms ease-in-out",
@@ -41,6 +42,19 @@ const PokemonBattleCard = ({ pokemon }: PokemonBattleCardProps) => {
         />
         <Box sx={{ width: "100%"}}>
         <Typography variant="h5">{pokemon?.name ?? emptyValues.EMPTY_NAME}</Typography>
+        {
+          pokemon && (
+            <>
+              <Divider />
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <PropertyBar title="HP" value={pokemon.hp} />
+                <PropertyBar title="Attack" value={pokemon.attack} />
+                <PropertyBar title="Defense" value={pokemon.defense} />
+                <PropertyBar title="Speed" value={pokemon.speed} />
+              </Box>
+            </>
+          )
+        }
         </Box>
       </Box>
     </Card>
