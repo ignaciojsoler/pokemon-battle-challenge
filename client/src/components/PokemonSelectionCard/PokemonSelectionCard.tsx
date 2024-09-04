@@ -15,11 +15,15 @@ const PokemonSelectionCard = ({ pokemon }: PokemonSelectionCardProps) => {
         maxWidth: 100,
         boxShadow: 3,
         padding: 2,
-        transition: "all 150ms ease-in-out",
-        borderRadius: 3,
+        transition: "all 100ms ease-in-out",
+        borderRadius: 2,
         cursor: "pointer",
         "&:hover": {
           transform: "scale(1.03)",
+        },
+        "&:active": {
+          transform: "scale(1.005)",
+          filter: " brightness(0.95)"
         },
       }}
     >

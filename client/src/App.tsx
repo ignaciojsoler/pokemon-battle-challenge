@@ -13,9 +13,6 @@ function App() {
       >
         {" "}
         <Typography variant="h4">Battle of pokemon</Typography>
-        <Box>
-          <Typography variant="h5">Select your pokemon</Typography>
-        </Box>
         <PokemonList/>
       </Box>
     </Container>
