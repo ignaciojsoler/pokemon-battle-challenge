@@ -1,6 +1,7 @@
 import { Container, Box, Typography, Card } from "@mui/material"
 import PokemonList from "./components/PokemonList/PokemonList"
 import AppProvider from "./context/AppProvider"
+import BattleSection from "./components/BattleSection/BattleSection"
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         {" "}
         <Typography variant="h4">Battle of pokemon</Typography>
         <PokemonList/>
+        <BattleSection/>
       </Box>
     </Container>
     </AppProvider>
