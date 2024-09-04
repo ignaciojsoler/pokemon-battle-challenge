@@ -1,15 +1,16 @@
 import { Box } from "@mui/material"
 import PokemonBattleCard from "./PokemonBattleCard/PokemonBattleCard"
-import { usePokemon } from "../../context/PokemonContext"
 import StartBattleButton from "./StartBattleButton/StartBattleButton";
+import useBattleSectionLogic from "./useBattleSectionLogic";
 
 const BattleSection = () => {
-  const { userSelectedPokemon } = usePokemon();
+  const { userSelectedPokemon, randomPokemon } = useBattleSectionLogic();
+  
   return (
     <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
       <PokemonBattleCard pokemon={userSelectedPokemon}/>
       <StartBattleButton/>
-      <PokemonBattleCard pokemon={userSelectedPokemon}/>
+      <PokemonBattleCard pokemon={randomPokemon}/>
     </Box>
   )
 }

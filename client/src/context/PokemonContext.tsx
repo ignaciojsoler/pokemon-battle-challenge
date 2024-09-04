@@ -14,6 +14,8 @@ interface PokemonContextType {
   arePokemonsLoading: boolean;
   userSelectedPokemon: Pokemon | null;
   setUserSelectedPokemon: (pokemon: Pokemon) => void;
+  randomPokemon: Pokemon | null;
+  setRandomPokemon: (pokemon: Pokemon) => void;
 }
 
 const PokemonContext = createContext<PokemonContextType>({
@@ -21,6 +23,8 @@ const PokemonContext = createContext<PokemonContextType>({
   arePokemonsLoading: false,
   userSelectedPokemon: null,
   setUserSelectedPokemon: () => {},
+  randomPokemon: null,
+  setRandomPokemon: () => {},
 });
 
 export const PokemonProvider = ({ children }: { children: ReactNode }) => {
@@ -29,6 +33,7 @@ export const PokemonProvider = ({ children }: { children: ReactNode }) => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [arePokemonsLoading, setArePokemonsLoading] = useState<boolean>(true);
   const [userSelectedPokemon, setUserSelectedPokemon] = useState<Pokemon | null>(null);
+  const [randomPokemon, setRandomPokemon] = useState<Pokemon | null>(null);
 
   useEffect(() => {
     setPokemons(pokemonList);
@@ -43,7 +48,9 @@ export const PokemonProvider = ({ children }: { children: ReactNode }) => {
       pokemons, 
       arePokemonsLoading, 
       userSelectedPokemon,
-      setUserSelectedPokemon 
+      setUserSelectedPokemon,
+      randomPokemon,
+      setRandomPokemon,
       }}>
       {children}
     </PokemonContext.Provider>
