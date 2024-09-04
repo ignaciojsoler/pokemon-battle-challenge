@@ -8,9 +8,4 @@ export class PokemonController {
   findAll() {
     return this.pokemonService.findAll();
   }
-
-  @Get("/seed")
-  seedPokemons() {
-    return this.pokemonService.seedPokemons();
-  }
 }
