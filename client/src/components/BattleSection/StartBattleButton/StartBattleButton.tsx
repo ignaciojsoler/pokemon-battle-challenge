@@ -1,10 +1,15 @@
 import { Button } from "@mui/material";
+import { Pokemon } from "../../../interfaces/Pokemon.interface";
 
 interface StartBattleButtonProps {
-    title?: string;
+  title?: string;
+  userSelectedPokemon: Pokemon | null;
 }
 
-const StartBattleButton = ({title = "Start battle"}: StartBattleButtonProps) => {
+const StartBattleButton = ({
+  title = "Start battle",
+  userSelectedPokemon,
+}: StartBattleButtonProps) => {
   return (
     <Button
       variant="contained"
@@ -12,6 +17,7 @@ const StartBattleButton = ({title = "Start battle"}: StartBattleButtonProps) => 
       sx={{
         height: "fit-content",
       }}
+      disabled={!userSelectedPokemon}
     >
       {title}
     </Button>

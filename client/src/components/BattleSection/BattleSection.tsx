@@ -9,7 +9,7 @@ const BattleSection = () => {
   return (
     <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
       <PokemonBattleCard pokemon={userSelectedPokemon}/>
-      <StartBattleButton/>
+      <StartBattleButton userSelectedPokemon={userSelectedPokemon}/>
       <PokemonBattleCard pokemon={randomPokemon}/>
     </Box>
   )
