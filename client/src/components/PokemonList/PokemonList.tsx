@@ -5,7 +5,12 @@ import { Box } from "@mui/material";
 const PokemonList = () => {
   const { pokemonList } = usePokemonServices();
   return (
-    <Box>
+    <Box
+      sx={{ display: "flex", 
+      flexDirection: "row", 
+      gap: 2,
+    }}
+    >
       {pokemonList.map((pokemon) => (
         <PokemonSelectionCard key={pokemon.id} pokemon={pokemon} />
       ))}
