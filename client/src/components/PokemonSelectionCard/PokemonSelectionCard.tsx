@@ -1,5 +1,6 @@
 import { Card, Box, Typography } from "@mui/material";
 import { Pokemon } from "../../interfaces/Pokemon.interface";
+import { usePokemon } from "../../context/PokemonContext";
 
 interface PokemonSelectionCardProps {
   pokemon: Pokemon;
@@ -7,6 +8,7 @@ interface PokemonSelectionCardProps {
 
 const PokemonSelectionCard = ({ pokemon }: PokemonSelectionCardProps) => {
   const { name, imageUrl } = pokemon;
+  const { setUserSelectedPokemon } = usePokemon();
 
   return (
     <Card
@@ -26,6 +28,7 @@ const PokemonSelectionCard = ({ pokemon }: PokemonSelectionCardProps) => {
           filter: " brightness(0.95)"
         },
       }}
+      onClick={() => setUserSelectedPokemon(pokemon)}
     >
       <Box
         sx={{

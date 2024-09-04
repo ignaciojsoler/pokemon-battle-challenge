@@ -12,17 +12,23 @@ import usePokemonServices from "../hooks/usePokemonServices";
 interface PokemonContextType {
   pokemons: Pokemon[];
   arePokemonsLoading: boolean;
+  userSelectedPokemon: Pokemon | null;
+  setUserSelectedPokemon: (pokemon: Pokemon) => void;
 }
 
 const PokemonContext = createContext<PokemonContextType>({
   pokemons: [],
   arePokemonsLoading: false,
+  userSelectedPokemon: null,
+  setUserSelectedPokemon: () => {},
 });
 
 export const PokemonProvider = ({ children }: { children: ReactNode }) => {
+  const { pokemonList, isLoading } = usePokemonServices();
+
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [arePokemonsLoading, setArePokemonsLoading] = useState<boolean>(true);
-  const { pokemonList, isLoading } = usePokemonServices();
+  const [userSelectedPokemon, setUserSelectedPokemon] = useState<Pokemon | null>(null);
 
   useEffect(() => {
     setPokemons(pokemonList);
@@ -33,7 +39,12 @@ export const PokemonProvider = ({ children }: { children: ReactNode }) => {
   }, [isLoading]);
 
   return (
-    <PokemonContext.Provider value={{ pokemons, arePokemonsLoading }}>
+    <PokemonContext.Provider value={{ 
+      pokemons, 
+      arePokemonsLoading, 
+      userSelectedPokemon,
+      setUserSelectedPokemon 
+      }}>
       {children}
     </PokemonContext.Provider>
   );

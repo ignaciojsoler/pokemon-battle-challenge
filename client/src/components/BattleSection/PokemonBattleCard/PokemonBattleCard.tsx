@@ -1,8 +1,14 @@
-import React from 'react'
+import { Pokemon } from "../../../interfaces/Pokemon.interface"
 
-const PokemonBattleCard = () => {
+interface PokemonBattleCardProps {
+  pokemon: Pokemon | null;
+}
+const PokemonBattleCard = ({pokemon}: PokemonBattleCardProps) => {
+
+  if (!pokemon) return null;
+
   return (
-    <div>PokemonBattleCard</div>
+    <div>{pokemon.name}</div>
   )
 }
 
