@@ -2,13 +2,15 @@ import { Pokemon } from "../../interfaces/Pokemon.interface"
 
 export const getRandomPokemon = ({
     pokemonId,
-    pokemonList
+    pokemonList,
+    currentRandomPokemonId,
 }: {
     pokemonId: string, 
-    pokemonList: Pokemon[]
+    currentRandomPokemonId?: string,
+    pokemonList: Pokemon[],
 }) => {
     const filteredPokemonList = pokemonList.filter((pokemon: Pokemon) => {
-        return pokemon.id!== pokemonId;
+        return pokemon.id!== pokemonId && pokemon.id!== currentRandomPokemonId;
     });
 
     if (!filteredPokemonList.length) return;
