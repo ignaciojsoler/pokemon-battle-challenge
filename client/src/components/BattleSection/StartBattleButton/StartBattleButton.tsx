@@ -17,7 +17,8 @@ const StartBattleButton = ({
         height: "fit-content",
         backgroundColor: "#2ba15c",
         color: "white",
-        textTransform: 'none' 
+        textTransform: 'none',
+        minWidth: 128,
       }}
       disabled={!userSelectedPokemon}
     >
