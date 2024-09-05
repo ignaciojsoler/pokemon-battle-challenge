@@ -1,6 +1,6 @@
-# Proyecto Fullstack con React, NestJS y Sequelize
+# Proyecto Fullstack con React, NestJS y TypeORM
 
-Este repositorio contiene una aplicación fullstack de pokemones, con un frontend desarrollado en React y un backend en NestJS, utilizando Sequelize para la gestión de la base de datos.
+Este repositorio contiene una aplicación fullstack de pokemones, con un frontend desarrollado en React y un backend en NestJS, utilizando TypeORM para la gestión de la base de datos.
 
 ![alt text](project-screenshot.png)
 
@@ -108,6 +108,8 @@ Accede a la aplicación desde tu navegador en la siguiente URL: [http://localhos
 Seleccionar un pokemon de la lista y empezar a batallar con el botón de "Start battle".
 
 ![alt text](<frontend-screenshot.png>)
+
+### Nota: El frontend no está adaptado para dispositivos móviles.
 
 Happy coding!
 
