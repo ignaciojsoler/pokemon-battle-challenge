@@ -61,6 +61,17 @@ export class SeedService {
       imageUrl:
         'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/133.png',
     },
+    {
+      id: 'pokemon-6',
+      name: 'Joltik',
+      attack: 3,
+      defense: 2,
+      hp: 2,
+      speed: 6,
+      type: 'Electric/Bug',
+      imageUrl:
+        'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/595.png',
+    },
   ];
 
   constructor(

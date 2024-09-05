@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Pokemon } from "../interfaces/Pokemon.interface";
-import { fetchAllPokemons } from "../services/pokemonServices";
+import { fetchAllPokemons, startBattle } from "../services/pokemonServices";
 
 const usePokemonServices = () => {
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
@@ -18,6 +18,15 @@ const usePokemonServices = () => {
     }
   };
 
+  const startPokemonsBattle = async (pokemon1: Pokemon, pokemon2: Pokemon) => {
+    try {
+      const battleData = await startBattle(pokemon1, pokemon2);
+      return battleData;
+    } catch (error) {
+      console.error("Error starting battle:", error);
+    }
+  }
+
   useEffect(() => {
     getPokemons();
   }, []);
@@ -25,6 +34,7 @@ const usePokemonServices = () => {
   return {
     pokemonList,
     isLoading,
+    startPokemonsBattle,
   };
 };
 

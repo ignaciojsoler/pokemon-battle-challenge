@@ -11,3 +11,17 @@ export const fetchAllPokemons = async (): Promise<Pokemon[] | null> => {
         return null;
     }
 } 
+
+export const startBattle = async (pokemon1: Pokemon, pokemon2: Pokemon) => {
+    try {
+        const response = await fetch(API_URL_ENDPOINTS.BATTLE, {
+            method: 'POST',
+            body: JSON.stringify({ pokemon1, pokemon2 }),
+        });
+        const data = await response.json();
+        return data;
+    } catch (err) {
+        console.log('Error', err);
+        return null;
+    }
+}

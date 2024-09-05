@@ -9,7 +9,7 @@ const PokemonList = () => {
     return <Typography sx={{minHeight: 180}}>Loading...</Typography>;
   };
 
-  if (!pokemons) {
+  if (!pokemons.length) {
     return <Typography sx={{minHeight: 180}}>No Pokemons found.</Typography>;
   };
 
