@@ -74,6 +74,8 @@ Puedes obtener la lista de Pokémon almacenados haciendo una solicitud GET a:
 ```bash
 GET http://localhost:3000/pokemon
 ```
+![alt text](backend-screenshot.png)
+
 
 ## Frontend: Primeros Pasos
 
@@ -100,6 +102,10 @@ npm run dev
 ```
 
 Accede a la aplicación desde tu navegador en la siguiente URL: [http://localhost:5173/](http://localhost:5173/)
+
+Seleccionar un pokemon de la lista y empezar a batallar con el botón de "Start battle".
+
+![alt text](<frontend-screenshot.png>)
 
 Happy coding!
 
