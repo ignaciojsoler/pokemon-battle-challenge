@@ -8,5 +8,6 @@ import { Pokemon } from './entities/pokemon.entity';
   imports: [TypeOrmModule.forFeature([Pokemon])],
   controllers: [PokemonController],
   providers: [PokemonService],
+  exports: [PokemonService]
 })
 export class PokemonModule {}
