@@ -1,18 +1,18 @@
 import { Box, Card, Divider, Typography } from "@mui/material";
 import { Pokemon } from "../../../interfaces/Pokemon.interface";
-import { ASSETS_ULR } from "../../../utils/constants";
 import PropertyBar from "./PropertyBar/PropertyBar";
 
 interface PokemonBattleCardProps {
   pokemon: Pokemon | null;
   defaultTitle: string;
+  defaultImage: string;
 }
 
-const emptyValues = {
-  EMPTY_IMAGE: ASSETS_ULR.EMPTY_POKEMON_SILHOUETTE,
-};
-
-const PokemonBattleCard = ({ pokemon, defaultTitle }: PokemonBattleCardProps) => {
+const PokemonBattleCard = ({ 
+  pokemon, 
+  defaultTitle, 
+  defaultImage
+}: PokemonBattleCardProps) => {
   return (
     <Card
       sx={{
@@ -33,7 +33,7 @@ const PokemonBattleCard = ({ pokemon, defaultTitle }: PokemonBattleCardProps) =>
         }}
       >
         <img
-          src={pokemon?.imageUrl ?? emptyValues.EMPTY_IMAGE}
+          src={pokemon?.imageUrl ?? defaultImage}
           alt={pokemon?.name ?? defaultTitle}
           loading="lazy"
           style={{ maxHeight: 180, filter: !pokemon ? "invert(0.3)" : ""}}

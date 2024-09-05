@@ -1,6 +1,14 @@
 import { Box, Typography } from "@mui/material";
+import { usePokemon } from "../../context/PokemonContext";
+import { BATTLE_RESULTS_COPIES } from "../../utils/constants";
 
 const DisplayWinner = () => {
+  const { battleResult } = usePokemon();
+
+  const concatenatedWinnerTest = `${battleResult?.winner.name} ${BATTLE_RESULTS_COPIES.VICTORY}`;
+
+  const displayText = battleResult ? concatenatedWinnerTest : BATTLE_RESULTS_COPIES.EMPTY_STATE;
+
   return (
     <Box
       sx={{
@@ -10,7 +18,7 @@ const DisplayWinner = () => {
         borderColor: "black",
       }}
     >
-      <Typography variant="h5">Winner will be shown here!</Typography>
+      <Typography variant="h5">{displayText}</Typography>
     </Box>
   );
 };

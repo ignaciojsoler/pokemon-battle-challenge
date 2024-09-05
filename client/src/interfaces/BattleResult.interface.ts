@@ -1,3 +1,7 @@
 export interface BattleResult {
-    winner: string;
+    winner: {
+        id: string;
+        name: string;
+        imageUrl: string;
+    };
 }
