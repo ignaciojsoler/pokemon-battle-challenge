@@ -2,6 +2,8 @@
 
 Este repositorio contiene una aplicación fullstack de pokemones, con un frontend desarrollado en React y un backend en NestJS, utilizando Sequelize para la gestión de la base de datos.
 
+![alt text](project-screenshot.png)
+
 ## Prerrequisitos
 
 - Node.js: Tener Node.js instalado en el sistema.
