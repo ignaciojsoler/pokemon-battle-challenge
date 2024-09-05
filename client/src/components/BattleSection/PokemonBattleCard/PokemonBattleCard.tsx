@@ -7,10 +7,8 @@ interface PokemonBattleCardProps {
   pokemon: Pokemon | null;
 }
 
-const { EMPTY_POKEMON_SILHOUETTE } = ASSETS_ULR;
-
 const emptyValues = {
-  EMPTY_IMAGE: EMPTY_POKEMON_SILHOUETTE,
+  EMPTY_IMAGE: ASSETS_ULR.EMPTY_POKEMON_SILHOUETTE,
   EMPTY_NAME: "Choose a Pokemon",
 };
 

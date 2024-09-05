@@ -14,18 +14,27 @@ const usePokemonServices = () => {
     } catch (error) {
       console.error("Error fetching Pokemons:", error);
     } finally {
-        setIsLoading(false);
+      setIsLoading(false);
     }
   };
 
-  const startPokemonsBattle = async (pokemon1: Pokemon, pokemon2: Pokemon) => {
+  const startPokemonsBattle = async ({
+    firstPokemonId,
+    secondPokemonId,
+  }: {
+    firstPokemonId: string;
+    secondPokemonId: string;
+  }) => {
+    setIsLoading(true);
     try {
-      const battleData = await startBattle(pokemon1, pokemon2);
+      const battleData = await startBattle(firstPokemonId, secondPokemonId);
       return battleData;
     } catch (error) {
       console.error("Error starting battle:", error);
+    } finally {
+      setIsLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
     getPokemons();

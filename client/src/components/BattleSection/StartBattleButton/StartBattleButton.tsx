@@ -4,11 +4,13 @@ import { Pokemon } from "../../../interfaces/Pokemon.interface";
 interface StartBattleButtonProps {
   title?: string;
   userSelectedPokemon: Pokemon | null;
+  onClick: () => void;
 }
 
 const StartBattleButton = ({
   title = "Start battle",
   userSelectedPokemon,
+  onClick,
 }: StartBattleButtonProps) => {
   return (
     <Button
@@ -21,6 +23,7 @@ const StartBattleButton = ({
         minWidth: 128,
       }}
       disabled={!userSelectedPokemon}
+      onClick={onClick}
     >
       {title}
     </Button>

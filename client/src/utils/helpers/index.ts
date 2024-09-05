@@ -1,6 +1,6 @@
 export const convertToPercentage = ({
   value,
-  min = 1,
+  min = 0,
   max = 6,
 }: {
   value: number;

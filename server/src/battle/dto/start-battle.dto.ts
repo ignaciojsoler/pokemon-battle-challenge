@@ -1,6 +1,10 @@
-import { Pokemon } from "src/pokemon/entities/pokemon.entity";
+import { IsNotEmpty, IsString } from "class-validator";
 
 export class StartBattleDto {
-  pokemon1: Pokemon;
-  pokemon2: Pokemon;
+  @IsString()
+  @IsNotEmpty()
+  firstPokemonId: string;
+  @IsString()
+  @IsNotEmpty()
+  secondPokemonId: string;
 }

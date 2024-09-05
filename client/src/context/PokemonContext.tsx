@@ -8,6 +8,7 @@ import {
 } from "react";
 import { Pokemon } from "../interfaces/Pokemon.interface";
 import usePokemonServices from "../hooks/usePokemonServices";
+import { BattleResult } from "../interfaces/BattleResult.interface";
 
 interface PokemonContextType {
   pokemons: Pokemon[];
@@ -16,6 +17,8 @@ interface PokemonContextType {
   setUserSelectedPokemon: (pokemon: Pokemon) => void;
   randomPokemon: Pokemon | null;
   setRandomPokemon: (pokemon: Pokemon) => void;
+  battleResult: BattleResult | null;
+  setBattleResult: (battleResult: BattleResult) => void;
 }
 
 const PokemonContext = createContext<PokemonContextType>({
@@ -25,6 +28,8 @@ const PokemonContext = createContext<PokemonContextType>({
   setUserSelectedPokemon: () => {},
   randomPokemon: null,
   setRandomPokemon: () => {},
+  battleResult: null,
+  setBattleResult: () => {},
 });
 
 export const PokemonProvider = ({ children }: { children: ReactNode }) => {
@@ -34,6 +39,7 @@ export const PokemonProvider = ({ children }: { children: ReactNode }) => {
   const [arePokemonsLoading, setArePokemonsLoading] = useState<boolean>(true);
   const [userSelectedPokemon, setUserSelectedPokemon] = useState<Pokemon | null>(null);
   const [randomPokemon, setRandomPokemon] = useState<Pokemon | null>(null);
+  const [battleResult, setBattleResult] = useState< BattleResult | null>(null);
 
   useEffect(() => {
     setPokemons(pokemonList);
@@ -51,6 +57,8 @@ export const PokemonProvider = ({ children }: { children: ReactNode }) => {
       setUserSelectedPokemon,
       randomPokemon,
       setRandomPokemon,
+      battleResult,
+      setBattleResult,
       }}>
       {children}
     </PokemonContext.Provider>

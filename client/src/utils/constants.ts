@@ -7,5 +7,10 @@ export const API_URL_ENDPOINTS = {
 };
 
 export const ASSETS_ULR = {
-  EMPTY_POKEMON_SILHOUETTE: "https://quizizz.com/media/resource/gs/quizizz-media/quizzes/8cd9ff69-beb7-42f0-b946-3d05f8929c08",
-}
+  EMPTY_POKEMON_SILHOUETTE:
+    "https://quizizz.com/media/resource/gs/quizizz-media/quizzes/8cd9ff69-beb7-42f0-b946-3d05f8929c08",
+};
+
+export const COMMON_HEADERS = {
+  "Content-Type": "application/json",
+};

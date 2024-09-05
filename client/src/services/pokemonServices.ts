@@ -1,5 +1,5 @@
 import { Pokemon } from "../interfaces/Pokemon.interface";
-import { API_URL_ENDPOINTS } from "../utils/constants";
+import { API_URL_ENDPOINTS, COMMON_HEADERS } from "../utils/constants";
 
 export const fetchAllPokemons = async (): Promise<Pokemon[] | null> => {
     try {
@@ -12,11 +12,12 @@ export const fetchAllPokemons = async (): Promise<Pokemon[] | null> => {
     }
 } 
 
-export const startBattle = async (pokemon1: Pokemon, pokemon2: Pokemon) => {
+export const startBattle = async (firstPokemonId: string, secondPokemonId: string) => {
     try {
         const response = await fetch(API_URL_ENDPOINTS.BATTLE, {
             method: 'POST',
-            body: JSON.stringify({ pokemon1, pokemon2 }),
+            headers: COMMON_HEADERS,
+            body: JSON.stringify({ firstPokemonId, secondPokemonId }),
         });
         const data = await response.json();
         return data;
