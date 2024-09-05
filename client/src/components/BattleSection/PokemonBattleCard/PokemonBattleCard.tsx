@@ -5,14 +5,14 @@ import PropertyBar from "./PropertyBar/PropertyBar";
 
 interface PokemonBattleCardProps {
   pokemon: Pokemon | null;
+  defaultTitle: string;
 }
 
 const emptyValues = {
   EMPTY_IMAGE: ASSETS_ULR.EMPTY_POKEMON_SILHOUETTE,
-  EMPTY_NAME: "Choose a Pokemon",
 };
 
-const PokemonBattleCard = ({ pokemon }: PokemonBattleCardProps) => {
+const PokemonBattleCard = ({ pokemon, defaultTitle }: PokemonBattleCardProps) => {
   return (
     <Card
       sx={{
@@ -34,13 +34,13 @@ const PokemonBattleCard = ({ pokemon }: PokemonBattleCardProps) => {
       >
         <img
           src={pokemon?.imageUrl ?? emptyValues.EMPTY_IMAGE}
-          alt={pokemon?.name ?? emptyValues.EMPTY_NAME}
+          alt={pokemon?.name ?? defaultTitle}
           loading="lazy"
           style={{ maxHeight: 180, filter: !pokemon ? "invert(0.3)" : ""}}
         />
         <Box sx={{ width: "100%" }}>
           <Typography variant="h5">
-            {pokemon?.name ?? emptyValues.EMPTY_NAME}
+            {pokemon?.name ?? defaultTitle}
           </Typography>
           <Divider sx={{marginY: 1}}/>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2, }}>

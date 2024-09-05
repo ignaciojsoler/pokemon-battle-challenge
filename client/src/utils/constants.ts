@@ -14,3 +14,8 @@ export const ASSETS_ULR = {
 export const COMMON_HEADERS = {
   "Content-Type": "application/json",
 };
+
+export const BATTLE_CARDS_TITLES = {
+  USER_SELECTED: "Choose a pokemon",
+  RANDOM_POKEMON: "Random opponent",
+}

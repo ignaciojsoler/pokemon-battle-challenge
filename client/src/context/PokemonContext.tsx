@@ -49,6 +49,10 @@ export const PokemonProvider = ({ children }: { children: ReactNode }) => {
     setArePokemonsLoading(isLoading);
   }, [isLoading]);
 
+  useEffect(() => {
+    setRandomPokemon(null);
+  }, [userSelectedPokemon])
+
   return (
     <PokemonContext.Provider value={{ 
       pokemons, 

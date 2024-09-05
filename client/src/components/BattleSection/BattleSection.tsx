@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import PokemonBattleCard from "./PokemonBattleCard/PokemonBattleCard";
 import StartBattleButton from "./StartBattleButton/StartBattleButton";
 import useBattleSectionLogic from "./useBattleSectionLogic";
+import { BATTLE_CARDS_TITLES } from "../../utils/constants";
 
 const BattleSection = () => {
   const { userSelectedPokemon, randomPokemon, generateRandomPokemon } =
@@ -16,12 +17,18 @@ const BattleSection = () => {
         alignItems: "center",
       }}
     >
-      <PokemonBattleCard pokemon={userSelectedPokemon} />
+      <PokemonBattleCard 
+      defaultTitle={BATTLE_CARDS_TITLES.USER_SELECTED}
+      pokemon={userSelectedPokemon} 
+      />
       <StartBattleButton
         onClick={generateRandomPokemon}
         userSelectedPokemon={userSelectedPokemon}
       />
-      <PokemonBattleCard pokemon={randomPokemon} />
+      <PokemonBattleCard 
+      defaultTitle={BATTLE_CARDS_TITLES.RANDOM_POKEMON}
+      pokemon={randomPokemon} 
+      />
     </Box>
   );
 };
