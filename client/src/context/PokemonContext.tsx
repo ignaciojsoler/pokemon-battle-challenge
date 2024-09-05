@@ -50,8 +50,9 @@ export const PokemonProvider = ({ children }: { children: ReactNode }) => {
   }, [isLoading]);
 
   useEffect(() => {
+    setBattleResult(null);
     setRandomPokemon(null);
-  }, [userSelectedPokemon])
+  }, [userSelectedPokemon]);
 
   return (
     <PokemonContext.Provider value={{ 
