@@ -109,6 +109,8 @@ Seleccionar un pokemon de la lista y empezar a batallar con el botón de "Start 
 
 ![alt text](<frontend-screenshot.png>)
 
+### Nota: El frontend no está adaptado para dispositivos móviles.
+
 Happy coding!
 
 Hecho con ❤️ por Ignacio Soler.
