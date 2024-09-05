@@ -1,26 +1,21 @@
-import { Container, Box, Typography, Card } from "@mui/material"
-import PokemonList from "./components/PokemonList/PokemonList"
+import PokemonList from "./components/PokemonList/PokemonList";
+import AppProvider from "./context/AppProvider";
+import BattleSection from "./components/BattleSection/BattleSection";
+import SectionTitle from "./components/SectionTitle/SectionTitle";
+import Layout from "./Layout/Layout";
+import DisplayWinner from "./components/DisplayWinner/DisplayWinner";
 
 function App() {
-
   return (
-    <>
-      <Container sx={{ flexGrow: 1, padding: 2 }}>
-      <Box
-        display="flex"
-        flexDirection="column" // Enables flexbox
-        gap={3}
-      >
-        {" "}
-        <Typography variant="h4">Battle of pokemon</Typography>
-        <Box>
-          <Typography variant="h5">Select your pokemon</Typography>
-        </Box>
-        <PokemonList/>
-      </Box>
-    </Container>
-    </>
-  )
+    <AppProvider>
+      <Layout>
+        <SectionTitle />
+        <PokemonList />
+        <DisplayWinner/>
+        <BattleSection />
+      </Layout>
+    </AppProvider>
+  );
 }
 
-export default App
+export default App;

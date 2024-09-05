@@ -13,4 +13,10 @@ export class PokemonService {
   findAll() {
     return this.pokemonRepository.find();
   }
+
+  async findOne(id: string) {
+    return await this.pokemonRepository.findOne({
+      where: { id },
+    });
+  }
 }

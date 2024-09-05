@@ -1,26 +1,58 @@
-import { Injectable } from '@nestjs/common';
-import { CreateBattleDto } from './dto/create-battle.dto';
-import { UpdateBattleDto } from './dto/update-battle.dto';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { StartBattleDto } from './dto/start-battle.dto';
+import { PokemonService } from 'src/pokemon/pokemon.service';
+import { Pokemon } from 'src/pokemon/entities/pokemon.entity';
+import { applyDamage, determineFasterPokemon, logTurn } from 'src/helpers/battle.helpers';
 
 @Injectable()
 export class BattleService {
-  create(createBattleDto: CreateBattleDto) {
-    return 'This action adds a new battle';
+
+  private calculateBattle(
+    firstPokemon: Pokemon,
+    secondPokemon: Pokemon,
+  ): Pokemon {
+    let [fasterPokemon, slowerPokemon] = determineFasterPokemon(firstPokemon,secondPokemon);
+    let turnNumber = 1;
+
+    while (fasterPokemon.hp > 0 && slowerPokemon.hp > 0) {
+      applyDamage(fasterPokemon, slowerPokemon);
+      logTurn({
+        attacker: fasterPokemon, 
+        defender: slowerPokemon, 
+        turnNumber
+      });
+      if (slowerPokemon.hp > 0) {
+        applyDamage(slowerPokemon, fasterPokemon);
+        logTurn({
+          attacker: slowerPokemon, 
+          defender: fasterPokemon, 
+          turnNumber: turnNumber + 1
+        });
+      }
+    }
+
+    return fasterPokemon.hp > 0 ? fasterPokemon : slowerPokemon;
   }
 
-  findAll() {
-    return `This action returns all battle`;
-  }
+  constructor(private readonly pokemonService: PokemonService) {}
+  async startBattle(startBattleDto: StartBattleDto) {
+    const { firstPokemonId, secondPokemonId } = startBattleDto;
 
-  findOne(id: number) {
-    return `This action returns a #${id} battle`;
-  }
+    const firstPokemon = await this.pokemonService.findOne(firstPokemonId);
+    const secondPokemon = await this.pokemonService.findOne(secondPokemonId);
 
-  update(id: number, updateBattleDto: UpdateBattleDto) {
-    return `This action updates a #${id} battle`;
-  }
+    if (!firstPokemon || !secondPokemon) throw new NotFoundException('Pokemon not found in the database');
 
-  remove(id: number) {
-    return `This action removes a #${id} battle`;
+    console.log(firstPokemon, secondPokemon);
+
+    const { id, name, imageUrl } = this.calculateBattle(firstPokemon, secondPokemon);
+
+    return {
+      winner: {
+        id,
+        name,
+        imageUrl,
+      },
+    };
   }
 }
