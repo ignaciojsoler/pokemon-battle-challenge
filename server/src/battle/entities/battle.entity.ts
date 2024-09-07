@@ -1,14 +1,18 @@
-import { Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
+@Entity()
 export class Battle {
 @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
-  winner: string;
+  firstPokemonId: string;
 
   @Column()
-  loser: string;
+  secondPokemonId: string;
+
+  @Column()
+  winner: string;
 
   @Column()
   createdAt: Date;
