@@ -3,6 +3,9 @@ import { StartBattleDto } from './dto/start-battle.dto';
 import { PokemonService } from 'src/pokemon/pokemon.service';
 import { Pokemon } from 'src/pokemon/entities/pokemon.entity';
 import { applyDamage, determineFasterPokemon, logTurn } from 'src/helpers/battle.helpers';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Battle } from './entities/battle.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class BattleService {
@@ -34,7 +37,11 @@ export class BattleService {
     return fasterPokemon.hp > 0 ? fasterPokemon : slowerPokemon;
   }
 
-  constructor(private readonly pokemonService: PokemonService) {}
+  constructor(
+    private readonly pokemonService: PokemonService,
+    @InjectRepository(Battle) private battleRepository: Repository<Battle>
+  ) {}
+
   async startBattle(startBattleDto: StartBattleDto) {
     const { firstPokemonId, secondPokemonId } = startBattleDto;
 
@@ -46,6 +53,15 @@ export class BattleService {
     console.log(firstPokemon, secondPokemon);
 
     const { id, name, imageUrl } = this.calculateBattle(firstPokemon, secondPokemon);
+
+    const battle = await this.battleRepository.create({
+      firstPokemonId,
+      secondPokemonId,
+      winner: id,
+      createdAt: new Date()
+    });
+
+    await this.battleRepository.save(battle);
 
     return {
       winner: {
